@@ -154,8 +154,6 @@ print(aktivne_okuzbe_realnevsCCA)
 ```
 
 
-
-
 Za oceno aktivnih okužb sem zopet predpostavil, da je človek zdrav po 14dneh. Ker sem iz grafa testiranja glede na delovni dan ugotovil, da je število dnevnih okužb povezana z dnevom v tednu, sem primerjal, kako bi izgledalo število aktivnih okuženih, če bi vsak dan naredili konstanto število testov, kjer pa bi se procent okuženih ohranjal. 
 Iz grafa se vidi, da bi bilo na začetku več okužb kasneje pa bi se obrnilo.
 

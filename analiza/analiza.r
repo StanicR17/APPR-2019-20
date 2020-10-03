@@ -103,7 +103,7 @@ datum = as.Date(datum, format="%Y-%m-%d")
 trend_drzav = data.frame("date"=datum,
                 "trend"=trend,
                 "location"=drzave)
-zemljevid_trendov<- tm_shape(merge(World, trend_drzav, by.x="name", by.y="location")) +
+zemljevid_trendov<- tm_shape(merge(World, trend_drzav, by.x="name", by.y="location",all.x=TRUE)) +
   tm_polygons("trend",midpoint = NA) 
 ################################################################3
 
