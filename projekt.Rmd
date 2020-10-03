@@ -116,6 +116,7 @@ Spodnji histogram kaže, kako pogosto smo v Sloveniji imeli določeno število d
 print(frekvenca_stevila_okuzb)
 ```
 
+
 Na histogramu se vidi, da med pogostostjo števila okužb in številom pozitivnih testov velja obratno sorazmerje.
 
 
@@ -124,6 +125,7 @@ Spodnji graf prikazuje število pozitivnih testov na celem svetu na milijon preb
 ```{r stevilo_primerov_na_svetu_na_million, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(stevilo_primerov_na_svetu_na_million)
 ```
+
 
 Iz grafa se razbere, da je prekuženost marca poskočila od aprila naprej pa narašča linearno.
 
@@ -149,7 +151,7 @@ source("analiza/analiza.r", encoding="UTF-8")
 ```
 S pomočjo grobe ocene aktivnih primerov pri konstantnem in nekonstantnem testiranju v Sloveniji.
 
-```{r aktivne_okuzbe_realnevsCCA , echo=FALSE, message=FALSE, fig.align='center ', warning = FALSE}
+```{r aktivne_okuzbe_realnevsCCA, echo=FALSE, message=FALSE, fig.align='center ', warning = FALSE}
 print(aktivne_okuzbe_realnevsCCA)
 ```
 
@@ -157,7 +159,7 @@ print(aktivne_okuzbe_realnevsCCA)
 Za oceno aktivnih okužb sem zopet predpostavil, da je človek zdrav po 14dneh. Ker sem iz grafa testiranja glede na delovni dan ugotovil, da je število dnevnih okužb povezana z dnevom v tednu, sem primerjal, kako bi izgledalo število aktivnih okuženih, če bi vsak dan naredili konstanto število testov, kjer pa bi se procent okuženih ohranjal. 
 Iz grafa se vidi, da bi bilo na začetku več okužb kasneje pa bi se obrnilo.
 
-```{r stevilo_okuzenih_nekonstantnovskonstantno , echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
+```{r stevilo_okuzenih_nekonstantnovskonstantno, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(stevilo_okuzenih_nekonstantnovskonstantno)
 ```
 Spodnji graf prikazuje število vseh pozitivnih testov na svetu proti grobi oceni aktivnih primerov.
@@ -169,7 +171,7 @@ Vidimo, da število aktivnih primerov še vedno raste. (Tu, je treba izpostaviti
 
 Spodnji graf prikazuje primerjavo procenta umrlih glede na število ukužb, glede na pričakovansko življensko dobo, z barvami pa so označeni tudi kontitnenti.
 
-```{r Death_rate_life_expectancy , echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
+```{r Death_rate_life_expectancy, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(Death_rate_life_expectancy )
 ```
 Na grafu so točke najbolj goste pri majhnem procentu pri visoki pričakovani življenski dobi, pri nižji pa vidimo nekoliko višjo variacijo, ki je verjetno posledica slabše zdravstvene oskrbe in nezaznavanja okužb, ki je posledica pomankanja testiranja.
@@ -177,7 +179,7 @@ Na grafu so točke najbolj goste pri majhnem procentu pri visoki pričakovani ž
 
 Spodnji graf prikazuje primerjavo procenta umrlih, glede na odstotek revnega prebivalstva, z barvami pa so označeni tudi kontitnenti.
 
-```{r Death_rate_poverty , echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
+```{r Death_rate_poverty, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(Death_rate_poverty)
 ```
 
