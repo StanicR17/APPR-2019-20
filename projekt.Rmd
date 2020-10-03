@@ -223,6 +223,7 @@ Za treniranje modela sem uporabil sledeče podatke Evropskih držav.
   - `Death rate ljudi s pridruženimi kardiovaskularnimi boleznimi`
   - `odstotek diabetikov` 
 
+
 Rezultat modela:
 ![](slike/Rplot.png)
 
