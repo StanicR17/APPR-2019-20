@@ -16,16 +16,16 @@ dnevno_stevilo_testiranj_linija <- ggplot(podatki, aes(x=datum,y=rutinsko.dnevno
 
 
 #skupno stevilo okuzenih
+stevilo_okuzenih_nekonstantnovskonstantno <-
+  ggplot(podatki %>% arrange(datum) %>%
+           mutate(skupno.stevilo=cumsum(okuzbe),
+                  stevilo.konstantno=cumsum(okuzbe / rutinsko.dnevno) * mean(rutinsko.dnevno)) %>%
+           gather("tip", "stevilo", skupno.stevilo, stevilo.konstantno),
+         aes(x=datum, y=stevilo, color=tip)) +
+  geom_line() +
+  ylab("Skupno število okuženih") +
+  ggtitle("Okuženi: konstantno in realno testiranje")
 
-stevilo_okuzenih_nekonstantnovskonstantno <- ggplot(podatki %>% group_by(datum) %>%
-         summarise(stevilo=okuzbe,na.rm = TRUE) %>%
-         arrange(datum) %>%
-         mutate(skupno.stevilo=cumsum(stevilo)),
-       aes(x=datum, y=skupno.stevilo)) +
-       geom_line(col="red")+
-       geom_line(y=cumsum((podatki$okuzbe) / podatki$rutinsko.dnevno * 1000),  col = "blue")+
-       ylab("Skupno število okuženih")+
-       ggtitle("Okuženi: konstanto in realno testiranje") 
 #skupno stevilo testiranj
 stevilo_testiranj <- ggplot(podatki %>% group_by(datum) %>%
                               summarise(stevilo=sum(rutinsko.dnevno),na.rm = TRUE) %>%

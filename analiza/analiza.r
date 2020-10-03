@@ -17,13 +17,15 @@ okuzeni_svet <- podatki_svet %>% group_by(date) %>% summarise(vsi_okuzeni = sum(
 CCA_okuzeni_svet <- podatki_svet %>% group_by(date) %>% summarise(vsi_okuzeni = sum(total_cases,na.rm = TRUE))
 CCA_okuzeni_svet[15:219,2]<- CCA_okuzeni_svet[15:219,2] - CCA_okuzeni_svet[1:205,2]
 
-#+ stat_smooth(method = "lm", col = "red")
 
-Vsi_okuzeni_proti_aktivni <- ggplot()+
-  geom_line(data= CCA_okuzeni_svet, aes(x=date, y=vsi_okuzeni/10^3), col="purple")+
-  geom_line(data= okuzeni_svet, aes(x=date, y=vsi_okuzeni/10^3), col="red")+
-  ylab("Okuženi v tisočih")+
-  ggtitle("Primerjava aktivnih okuženih in vseh okuženih")
+#+ stat_smooth(method = "lm", col = "red")
+df <- merge(okuzeni_svet,CCA_okuzeni_svet,by=c("date"))
+df <- data.frame("okuzeni"=c(df$vsi_okuzeni.x, df$vsi_okuzeni.y),
+                "date"=c(df$date,df$date),
+                "tip"=c(rep("vsi",length(df$date)),rep("aktivni",length(df$date))))
+
+Vsi_okuzeni_proti_aktivni <- ggplot(df,aes(x=date, y=okuzeni/10^3,col=tip))+
+  geom_line()
 
 #############################################################################################
 death_rate_life_expectancy <-podatki_svet %>%

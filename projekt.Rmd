@@ -7,14 +7,13 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 source("lib/libraries.r", encoding="UTF-8")
 ```
 
-```{r rstudio, echo=FALSE, results='asis'}
+```{r rstudio, echo=FALSE, results='asis', warning=FALSE}
 # Izris povezave do RStudia na Binderju
 source("lib/rstudio.r", encoding="UTF-8")
 ```
@@ -28,7 +27,7 @@ V projektu sem analiziral epidemijo pri nas in po svetu. Našo stanje sem primer
 
 # Obdelava, uvoz in čiščenje podatkov
 
-```{r uvoz, echo=FALSE, message=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE,warning=FALSE}
 source("uvoz/uvoz.r", encoding="UTF-8")
 ```
 Uvozil sem podatke o korona virusu v excel obliki iz uradne strani NIJZ in podatke o svetovnem stanju v obliki csv iz spletne strani covid.ourworldindata. Iz wikipedije sem uvozil še podatke o prebivalcih celine.
@@ -145,7 +144,7 @@ Zemljevid_cases_per_million
 
 # Napredna analiza podatkov
 
-```{r analiza, echo=FALSE, message=FALSE}
+```{r analiza, echo=FALSE, message=FALSE , warning = FALSE}
 source("analiza/analiza.r", encoding="UTF-8")
 ```
 S pomočjo grobe ocene aktivnih primerov pri konstantnem in nekonstantnem testiranju v Sloveniji.
@@ -154,18 +153,20 @@ S pomočjo grobe ocene aktivnih primerov pri konstantnem in nekonstantnem testir
 print(aktivne_okuzbe_realnevsCCA)
 ```
 
-Za oceno aktivnih okužb sem zopet predpostavil, da je človek zdrav po 14dneh. Ker sem iz grafa testiranja glede na delovni dan ugotovil, da je število dnevnih okužb povezana z dnevom v tednu, sem primerjal, kako bi izgledalo število aktivnih okuženih, če bi vsak dan naredili 1000 testov, kjer pa bi se procent okuženih ohranjal. Iz grafa vidimo, da se ocena aktivnih okužb razlikuje samo v prvem in zadnjem delu, kar je zanimivo, glede na to, da je število okuženih pri konstantne testiranju priblžno konstantno večje, kot pri nekonstantem (zaradi tega, ker v resnici opravimo približno 850 testov na dan). To je dobro razvidno na naslednjem grafu:
+
+
+
+Za oceno aktivnih okužb sem zopet predpostavil, da je človek zdrav po 14dneh. Ker sem iz grafa testiranja glede na delovni dan ugotovil, da je število dnevnih okužb povezana z dnevom v tednu, sem primerjal, kako bi izgledalo število aktivnih okuženih, če bi vsak dan naredili konstanto število testov, kjer pa bi se procent okuženih ohranjal. 
+Iz grafa se vidi, da bi bilo na začetku več okužb kasneje pa bi se obrnilo.
 
 ```{r stevilo_okuzenih_nekonstantnovskonstantno , echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(stevilo_okuzenih_nekonstantnovskonstantno)
 ```
-
 Spodnji graf prikazuje število vseh pozitivnih testov na svetu proti grobi oceni aktivnih primerov.
 
 ```{r Vsi_okuzeni_proti_aktivni, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(Vsi_okuzeni_proti_aktivni)
 ```
-
 Vidimo, da število aktivnih primerov še vedno raste. (Tu, je treba izpostaviti, da podatkov za aktivne primere ni bilo, zato sem predpostavil, da je človek 14 dni po pozitivnem testu zdrav in tako dobil grobo oceno.)
 
 Spodnji graf prikazuje primerjavo procenta umrlih glede na število ukužb, glede na pričakovansko življensko dobo, z barvami pa so označeni tudi kontitnenti.
