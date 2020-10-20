@@ -92,7 +92,6 @@ for(drzava in drzave){
   y=podatki_za_Drzavo$total_cases_per_million 
   model <- lm(y ~ poly(x,3))
   zadnji_dan =max(x)
-  # 3*a3* x^2+a2*2*x+a1
   trend = c(trend,(predict(model)[[length(predict(model))]]-predict(model)[[length(predict(model))-1]])/(x[length(x)]-x[length(x)-1]))
   }
   else{
